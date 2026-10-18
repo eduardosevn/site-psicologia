@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eduardo Lima | Psicólogo</title>
+    <meta name="description" content="Psicólogo em Passo Fundo/RS. Atendimento a adolescentes, adultos e pessoas 60+, presencial, on-line e em domicílio.">
+    <meta name="theme-color" content="#17758a">
+    <link rel="icon" type="image/png" href="img/simbolo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Fraunces:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <a href="#principal" class="pular-conteudo">Pular para o conteúdo</a>
+
+    <header>
+        <a href="index.html" class="marca"><img src="img/simbolo.png" alt="" class="marca-simbolo" width="48" height="48">Dr. Eduardo Lima</a>
+
+        <nav aria-label="Navegação principal">
+            <a href="index.html" aria-current="page">Início</a>
+            <a href="#atendimento">Atendimento</a>
+            <a href="#como-funciona">Como funciona</a>
+            <a href="#sobre">Sobre mim</a>
+            <a href="pages/contato.html">Contato</a>
+            <a href="#" class="botao botao--zap" data-whatsapp>Agendar conversa</a>
+        </nav>
+    </header>
+
+    <main id="principal">
+
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Nem sempre é fácil entender o que está acontecendo.</h1>
+
+                <p>
+                    A psicoterapia pode ser um espaço para olhar para isso
+                    com mais calma e encontrar novos caminhos.
+                </p>
+
+                <div class="botoes">
+                    <a href="#atendimento" class="botao">Conheça o atendimento</a>
+                    <a href="#" class="botao botao--secundario" data-whatsapp>Falar pelo WhatsApp</a>
+                </div>
+
+                <div class="credenciais">
+                    <strong>Dr. Eduardo Lima</strong>
+                    <span>Psicólogo • CRP 07-23439</span>
+                    <span>Doutor em Envelhecimento Humano</span>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="img/eduardo.jpg" alt="Eduardo Lima, psicólogo" width="360" height="460">
+            </div>
+        </section>
+
+        <section class="escolha-publico" data-revelar>
+            <div class="escolha-texto">
+                <h2>Você está procurando ajuda...</h2>
+                <p>
+                    Cada pessoa chega à psicoterapia por um caminho diferente.
+                    Vou ajudar você a encontrar o atendimento adequado.
+                </p>
+            </div>
+
+            <div class="opcoes-publico">
+                <button class="cartao-publico" id="para-mim" type="button" aria-pressed="false">
+                    <span class="icone-publico">○</span>
+                    <span class="titulo-cartao">Para mim</span>
+                    <span class="descricao-cartao">Quero cuidar de mim.</span>
+                </button>
+
+                <button class="cartao-publico" id="para-outra-pessoa" type="button" aria-pressed="false">
+                    <span class="icone-publico">○</span>
+                    <span class="titulo-cartao">Para outra pessoa</span>
+                    <span class="descricao-cartao">Estou buscando ajuda para alguém.</span>
+                </button>
+            </div>
+
+            <div id="mensagem-publico" class="mensagem-publico" hidden aria-live="polite">
+                <h3 id="titulo-publico"></h3>
+                <p id="texto-publico"></p>
+                <div class="botoes">
+                    <a href="#atendimento" class="botao">Conhecer o atendimento</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="servicos" id="atendimento">
+            <div class="servicos-intro" data-revelar>
+                <h2>Como posso ajudar?</h2>
+                <p>
+                    Cada momento da vida traz seus próprios desafios.
+                    Encontre aqui o tipo de atendimento que procura.
+                </p>
+            </div>
+
+            <div class="grade-servicos" data-revelar>
+                <a href="pages/adolescentes.html" class="cartao-servico">
+                    <div class="imagem-servico imagem-adolescentes"></div>
+                    <div class="conteudo-servico">
+                        <h3>Adolescentes</h3>
+                        <p>Um espaço para lidar com mudanças, sentimentos e desafios dessa fase.</p>
+                        <span>Conheça o atendimento →</span>
+                    </div>
+                </a>
+
+                <a href="pages/adultos.html" class="cartao-servico">
+                    <div class="imagem-servico imagem-adultos"></div>
+                    <div class="conteudo-servico">
+                        <h3>Adultos</h3>
+                        <p>Cuidado emocional diante das demandas e dos desafios da vida.</p>
+                        <span>Conheça o atendimento →</span>
+                    </div>
+                </a>
+
+                <a href="pages/60mais.html" class="cartao-servico">
+                    <div class="imagem-servico imagem-60mais"></div>
+                    <div class="conteudo-servico">
+                        <h3>Pessoas 60+</h3>
+                        <p>Acolhimento nas transições, nas perdas e nas novas possibilidades do envelhecimento.</p>
+                        <span>Conheça o atendimento →</span>
+                    </div>
+                </a>
+
+                <a href="pages/avaliacao.html" class="cartao-servico">
+                    <div class="imagem-servico imagem-avaliacao"></div>
+                    <div class="conteudo-servico">
+                        <h3>Avaliação psicológica</h3>
+                        <p>Um processo estruturado para compreender características e necessidades psicológicas.</p>
+                        <span>Conheça o serviço →</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="sobre-resumo" id="sobre" data-revelar>
+            <div class="sobre-conteudo">
+                <p class="sobre-etiqueta">Quem sou</p>
+                <h2>Um pouco sobre mim</h2>
+
+                <p>
+                    Sou psicólogo e acredito que compreender a própria
+                    história pode ajudar a encontrar novas formas de
+                    lidar com os desafios da vida.
+                </p>
+                <p>
+                    Meu percurso reúne experiência em Psicologia,
+                    pesquisa e avaliação psicológica.
+                </p>
+                <p class="sobre-credencial">Dr. Eduardo Lima · Psicólogo · CRP 07-23439</p>
+
+                <a href="pages/sobre.html" class="botao botao-sobre">Conheça minha trajetória</a>
+            </div>
+
+            <div class="sobre-foto">
+                <img src="img/eduardo.jpg" alt="Eduardo Lima, psicólogo" width="320" height="400" loading="lazy">
+            </div>
+        </section>
+
+        <section class="modalidades" id="como-funciona">
+            <div class="modalidades-intro" data-revelar>
+                <h2>Um atendimento que considera sua realidade</h2>
+                <p>
+                    O primeiro passo é conversar sobre o que você está
+                    vivendo e compreender como o acompanhamento pode ajudar.
+                </p>
+            </div>
+
+            <div class="grade-modalidades" data-revelar>
+                <article class="cartao-modalidade">
+                    <div class="icone-modalidade">
+                        <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 12h3v8h5v-5h4v5h5v-8h3z"/></svg>
+                    </div>
+                    <h3>Atendimento presencial</h3>
+                    <p>Um espaço reservado para conversar com tranquilidade, respeitando suas necessidades e seu momento de vida.</p>
+                </article>
+
+                <article class="cartao-modalidade">
+                    <div class="icone-modalidade">
+                        <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h11a2 2 0 0 1 2 2v2.5l4-2.5v10l-4-2.5V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
+                    </div>
+                    <h3>Atendimento on-line</h3>
+                    <p>Acompanhamento por videochamada, com a possibilidade de realizar as sessões sem precisar sair de casa.</p>
+                </article>
+
+                <article class="cartao-modalidade">
+                    <div class="icone-modalidade">
+                        <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.500C19 14.800 12 21 12 21zm0-14a2.700 2.700 0 1 0 0 5.400A2.700 2.700 0 0 0 12 7z"/></svg>
+                    </div>
+                    <h3>Atendimento em domicílio</h3>
+                    <p>Para pessoas idosas, acamadas ou com limitações que dificultam o deslocamento. O atendimento acontece no ambiente da própria pessoa, conforme a necessidade e a disponibilidade para a região.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="escolha-publico" id="perguntas" data-revelar>
+            <div class="escolha-texto">
+                <h2>Perguntas frequentes</h2>
+                <p>Dúvidas comuns de quem está pensando em começar. Se a sua não estiver aqui, é só perguntar.</p>
+            </div>
+
+            <div class="faq">
+                <details>
+                    <summary>Preciso estar muito mal para procurar psicoterapia?</summary>
+                    <p>Não. Muitas pessoas procuram um espaço para conversar, entender melhor o que sentem ou atravessar uma mudança, mesmo sem estar em crise. Você não precisa de um diagnóstico nem saber explicar o que está acontecendo para começar a conversar.</p>
+                </details>
+                <details>
+                    <summary>Como é o primeiro contato?</summary>
+                    <p>O primeiro contato serve para orientações gerais e para esclarecer dúvidas sobre o atendimento. É o momento de perguntar, entender como funciona e ver se faz sentido seguir. Respondo em até 1 dia útil.</p>
+                </details>
+                <details>
+                    <summary>O que eu conto fica em sigilo?</summary>
+                    <p>O sigilo é um dever do psicólogo, previsto no Código de Ética Profissional. As situações em que ele pode ser limitado são excepcionais e previstas em lei e no código, e esses cuidados podem ser esclarecidos antes de você começar.</p>
+                </details>
+                <details>
+                    <summary>O atendimento on-line funciona?</summary>
+                    <p>O atendimento psicológico on-line é uma modalidade reconhecida e regulamentada pelo Conselho Federal de Psicologia. Para muitas pessoas, ele facilita a rotina. Conversamos antes para ver se faz sentido para a sua situação.</p>
+                </details>
+                <details>
+                    <summary>Quanto tempo dura a psicoterapia?</summary>
+                    <p>Não há um prazo único. A duração depende do que você busca e do seu ritmo, e é conversada ao longo do processo.</p>
+                </details>
+                <details>
+                    <summary>Qual é a diferença entre psicólogo e psiquiatra?</summary>
+                    <p>O psicólogo trabalha com a escuta e o acompanhamento psicológico e não prescreve medicamentos. O psiquiatra é médico e pode prescrevê-los. Em alguns casos, o cuidado em conjunto com outros profissionais de saúde é importante, e isso é conversado com você.</p>
+                </details>
+            </div>
+        </section>
+
+        <section class="convite-contato" id="contato" data-revelar>
+            <div class="conteudo-convite">
+                <h2>Você não precisa ter todas as respostas para começar.</h2>
+                <p>
+                    Se algo está difícil neste momento, podemos conversar
+                    sobre o que você está vivendo e sobre as possibilidades
+                    de acompanhamento psicológico.
+                </p>
+                <div class="botoes">
+                    <a href="pages/contato.html" class="botao-contato">Entre em contato</a>
+                    <a href="#" class="botao botao--secundario" data-whatsapp>Conversar pelo WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+        <div class="conteudo-rodape">
+            <div class="identificacao-rodape">
+                <p class="nome-rodape">Dr. Eduardo Lima</p>
+                <p>Psicólogo | CRP 07-23439</p>
+                <p>Doutor em Envelhecimento Humano</p>
+                <p>Passo Fundo/RS</p>
+            </div>
+
+            <nav class="links-rodape" aria-label="Navegação do rodapé">
+                <a href="index.html">Início</a>
+                <a href="pages/sobre.html">Sobre</a>
+                <a href="pages/avaliacao.html">Avaliação psicológica</a>
+                <a href="pages/contato.html">Contato</a>
+            </nav>
+        </div>
+
+        <div class="direitos-rodape">
+            <p>As informações deste site não substituem uma avaliação ou um acompanhamento psicológico individualizado.</p>
+            <p>&copy; 2026 Eduardo Lima. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
