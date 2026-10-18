@@ -117,6 +117,7 @@ if (botaoParaMim && botaoParaOutraPessoa && mensagemPublico) {
 
     function selecionarPublico(publico) {
         const dados = mensagens[publico];
+        try { sessionStorage.setItem("publicoEscolhido", publico); } catch (erro) { /* sem armazenamento: segue normalmente */ }
         botoesPublico.forEach(function (botao) {
             botao.classList.remove("selecionado");
             botao.setAttribute("aria-pressed", "false");
