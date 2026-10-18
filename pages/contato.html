@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contato | Eduardo Lima — Psicólogo</title>
+    <meta name="description" content="Entre em contato com Eduardo Lima para esclarecer dúvidas sobre psicoterapia e avaliação psicológica.">
+    <meta name="theme-color" content="#17758a">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Dr. Eduardo Lima | Psicólogo">
+    <meta property="og:title" content="Contato | Eduardo Lima — Psicólogo">
+    <meta property="og:description" content="Entre em contato com Eduardo Lima para esclarecer dúvidas sobre psicoterapia e avaliação psicológica.">
+    <meta property="og:url" content="https://eduardosevn.github.io/site-psicologia/pages/contato.html">
+    <meta property="og:image" content="https://eduardosevn.github.io/site-psicologia/img/compartilhar.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Dr. Eduardo Lima, psicólogo em Passo Fundo/RS">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="../img/simbolo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Fraunces:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <a href="#principal" class="pular-conteudo">Pular para o conteúdo</a>
+
+    <header>
+        <a href="../index.html" class="marca"><img src="../img/simbolo.png" alt="" class="marca-simbolo" width="48" height="48">Dr. Eduardo Lima</a>
+        <nav aria-label="Navegação principal">
+            <a href="../index.html">Início</a>
+            <a href="../index.html#atendimento">Atendimento</a>
+            <a href="sobre.html">Sobre mim</a>
+            <a href="contato.html" aria-current="page">Contato</a>
+            <a href="#" class="botao botao--zap" data-whatsapp>Agendar conversa</a>
+        </nav>
+    </header>
+
+    <main id="principal">
+
+        <section class="escolha-publico">
+            <div class="escolha-texto" style="margin-bottom:0">
+                <h1>Vamos conversar?</h1>
+                <p>
+                    Se você deseja conhecer as possibilidades de atendimento
+                    ou avaliação psicológica, pode entrar em contato para
+                    esclarecer suas dúvidas e saber como funciona o processo.
+                </p>
+                <p>Escolha a forma de contato que for mais confortável para você.</p>
+                <p>O primeiro contato serve para orientações gerais e esclarecer dúvidas sobre o atendimento.</p>
+                <p>Respondo em até 1 dia útil.</p>
+            </div>
+        </section>
+
+        <section class="convite-contato">
+            <div class="conteudo-convite">
+                <h2>Prefere conversar pelo WhatsApp?</h2>
+                <p>
+                    Você pode iniciar uma conversa diretamente pelo WhatsApp
+                    para esclarecer suas dúvidas sobre o atendimento.
+                </p>
+                <a href="#" class="botao botao--zap" data-whatsapp>
+                    <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM7 9h10v2H7zm0 4h7v2H7z"/></svg>
+                    Conversar pelo WhatsApp
+                </a>
+            </div>
+        </section>
+
+        <section class="servicos" id="formulario-contato">
+            <div class="titulo-secao">
+                <h2>Ou envie uma mensagem</h2>
+                <p>Preencha os campos abaixo para que eu possa retornar seu contato.</p>
+            </div>
+
+            <form id="form-contato" action="https://formsubmit.co/78b0a7a44aa768006375d30bf19061ea" method="POST">
+                <input type="hidden" name="publico" id="publico">
+                <input type="hidden" name="_subject" value="Novo contato pelo site">
+                <input type="hidden" name="_template" value="box">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://eduardosevn.github.io/site-psicologia/pages/obrigado.html">
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+                <div class="campo-formulario">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" autocomplete="name" required>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="email">E-mail para retorno</label>
+                    <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="telefone">Telefone (opcional)</label>
+                    <input type="tel" id="telefone" name="telefone" autocomplete="tel">
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="mensagem">Mensagem (opcional)</label>
+                    <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+                </div>
+
+                <p class="aviso-privacidade">
+                    Utilize este formulário apenas para o primeiro contato.
+                    Evite incluir informações íntimas ou dados sensíveis sobre sua saúde.
+                    Ao enviar, você concorda que seus dados sejam usados apenas
+                    para retornar o contato.
+                </p>
+
+                <button type="submit" class="botao">Enviar mensagem</button>
+                <button type="button" class="link-privacidade" data-abrir="dialogo-privacidade">
+                    Como seus dados são tratados
+                </button>
+                <p id="status-formulario" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+        <div class="conteudo-rodape">
+            <div class="identificacao-rodape">
+                <p class="nome-rodape">Dr. Eduardo Lima</p>
+                <p>Psicólogo | CRP 07-23439</p>
+                <p>Doutor em Envelhecimento Humano</p>
+                <p>Passo Fundo/RS</p>
+            </div>
+            <nav class="links-rodape" aria-label="Navegação do rodapé">
+                <a href="../index.html">Início</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="avaliacao.html">Avaliação psicológica</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+        </div>
+        <div class="direitos-rodape">
+            <p>As informações deste site não substituem uma avaliação ou um acompanhamento psicológico individualizado.</p>
+            <p>&copy; 2026 Eduardo Lima. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <dialog class="tema-dialogo" id="dialogo-privacidade" aria-labelledby="titulo-privacidade">
+        <button type="button" class="tema-fechar" aria-label="Fechar" data-fechar>&times;</button>
+        <h2 id="titulo-privacidade">Como seus dados são tratados</h2>
+        <div class="tema-corpo">
+            <p>Este resumo explica, de forma simples, o que acontece com as informações que você envia por este formulário, conforme a Lei Geral de Proteção de Dados (LGPD).</p>
+            <p><strong>Responsável:</strong> Eduardo Lima, psicólogo (CRP 07-23439), Passo Fundo/RS.</p>
+            <p><strong>Dados coletados:</strong> nome, e-mail, telefone (opcional), mensagem (opcional) e a informação de se o contato é para você ou para outra pessoa.</p>
+            <p><strong>Para que são usados:</strong> apenas para responder ao seu contato e dar orientações gerais sobre o atendimento.</p>
+            <p><strong>Informações de saúde:</strong> por favor, não inclua dados íntimos ou sobre sua saúde na mensagem. Esses assuntos são tratados no atendimento.</p>
+            <p><strong>Como a mensagem chega até mim:</strong> o formulário usa um serviço externo de envio (FormSubmit), que encaminha o conteúdo para o meu e-mail. Não vendo seus dados nem os compartilho com terceiros para outras finalidades.</p>
+            <p><strong>Por quanto tempo:</strong> guardo as informações pelo tempo necessário para responder ao seu contato. Se o atendimento for iniciado, os registros passam a seguir as normas profissionais da Psicologia.</p>
+            <p><strong>Menores de 18 anos:</strong> o contato deve ser feito por um responsável.</p>
+            <p><strong>Seus direitos:</strong> você pode pedir para saber quais dados tenho sobre você, corrigi-los ou excluí-los, e retirar seu consentimento a qualquer momento, pelos canais de contato deste site.</p>
+            <p><strong>WhatsApp:</strong> se preferir conversar por lá, valem também as regras de privacidade do próprio aplicativo.</p>
+        </div>
+    </dialog>
+<script src="../js/script.js"></script>
+<script>
+    const parametros = new URLSearchParams(window.location.search);
+    let escolha = parametros.get("publico");
+
+    if (!escolha) {
+        try { escolha = sessionStorage.getItem("publicoEscolhido"); } catch (erro) { escolha = null; }
+    }
+
+    const campoPublico = document.getElementById("publico");
+    if (campoPublico) {
+        if (escolha === "mim") {
+            campoPublico.value = "Para mim";
+        } else if (escolha === "outra-pessoa") {
+            campoPublico.value = "Para outra pessoa";
+        } else {
+            campoPublico.value = "Não informado";
+        }
+    }
+</script>
+</body>
+</html>
