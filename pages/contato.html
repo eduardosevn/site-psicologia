@@ -149,11 +149,21 @@
 <script src="../js/script.js"></script>
 <script>
     const parametros = new URLSearchParams(window.location.search);
-    const publicoEscolhido = parametros.get("publico");
-    const campoPublico = document.getElementById("publico");
+    let escolha = parametros.get("publico");
 
-    if (campoPublico && (publicoEscolhido === "mim" || publicoEscolhido === "outra-pessoa")) {
-        campoPublico.value = publicoEscolhido === "mim" ? "Para mim" : "Para outra pessoa";
+    if (!escolha) {
+        try { escolha = sessionStorage.getItem("publicoEscolhido"); } catch (erro) { escolha = null; }
+    }
+
+    const campoPublico = document.getElementById("publico");
+    if (campoPublico) {
+        if (escolha === "mim") {
+            campoPublico.value = "Para mim";
+        } else if (escolha === "outra-pessoa") {
+            campoPublico.value = "Para outra pessoa";
+        } else {
+            campoPublico.value = "Não informado";
+        }
     }
 </script>
 </body>
