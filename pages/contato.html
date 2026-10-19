@@ -160,22 +160,36 @@
     </dialog>
 <script src="../js/script.js"></script>
 <script>
-    const parametros = new URLSearchParams(window.location.search);
-    let escolha = parametros.get("publico");
+    const formulario = document.getElementById("form-contato");
+    const statusFormulario = document.getElementById("status-formulario");
 
-    if (!escolha) {
-        try { escolha = sessionStorage.getItem("publicoEscolhido"); } catch (erro) { escolha = null; }
-    }
+    if (formulario && statusFormulario) {
+        formulario.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const botao = formulario.querySelector('button[type="submit"]');
+            const textoOriginal = botao.textContent;
+            botao.disabled = true;
+            botao.textContent = "Enviando...";
+            statusFormulario.textContent = "Enviando sua mensagem, aguarde um instante.";
 
-    const campoPublico = document.getElementById("publico");
-    if (campoPublico) {
-        if (escolha === "mim") {
-            campoPublico.value = "Para mim";
-        } else if (escolha === "outra-pessoa") {
-            campoPublico.value = "Para outra pessoa";
-        } else {
-            campoPublico.value = "Não informado";
-        }
+            const controle = new AbortController();
+            const limite = setTimeout(function () { controle.abort(); }, 20000);
+
+            try {
+                const resposta = await fetch(
+                    formulario.action.replace("formsubmit.co/", "formsubmit.co/ajax/"),
+                    { method: "POST", headers: { Accept: "application/json" }, body: new FormData(formulario), signal: controle.signal }
+                );
+                clearTimeout(limite);
+                if (!resposta.ok) throw new Error("falha");
+                window.location.href = "obrigado.html";
+            } catch (erro) {
+                clearTimeout(limite);
+                statusFormulario.textContent = "Não foi possível enviar agora. Tente novamente ou fale comigo pelo WhatsApp.";
+                botao.disabled = false;
+                botao.textContent = textoOriginal;
+            }
+        });
     }
 </script>
 </body>
