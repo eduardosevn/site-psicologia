@@ -77,13 +77,13 @@
                 <p>Preencha os campos abaixo para que eu possa retornar seu contato.</p>
             </div>
 
-            <form id="form-contato" action="https://formsubmit.co/78b0a7a44aa768006375d30bf19061ea" method="POST">
+            <form id="form-contato" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="309240b1-fa30-42ad-b709-0b1c0abd55a2">
+                <input type="hidden" name="subject" value="Novo contato pelo site">
+                <input type="hidden" name="from_name" value="Site Dr. Eduardo Lima">
+                <input type="hidden" name="redirect" value="https://psicologoeduardolima.com.br/pages/obrigado.html">
                 <input type="hidden" name="publico" id="publico">
-                <input type="hidden" name="_subject" value="Novo contato pelo site">
-                <input type="hidden" name="_template" value="box">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://psicologoeduardolima.com.br/pages/obrigado.html">
-                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
                 <div class="campo-formulario">
                     <label for="nome">Nome</label>
@@ -152,7 +152,7 @@
             <p><strong>Dados coletados:</strong> nome, e-mail, telefone (opcional), mensagem (opcional) e a informação de se o contato é para você ou para outra pessoa.</p>
             <p><strong>Para que são usados:</strong> apenas para responder ao seu contato e dar orientações gerais sobre o atendimento.</p>
             <p><strong>Informações de saúde:</strong> por favor, não inclua dados íntimos ou sobre sua saúde na mensagem. Esses assuntos são tratados no atendimento.</p>
-            <p><strong>Como a mensagem chega até mim:</strong> o formulário usa um serviço externo de envio (FormSubmit), que encaminha o conteúdo para o meu e-mail. Não vendo seus dados nem os compartilho com terceiros para outras finalidades.</p>
+            <p><strong>Como a mensagem chega até mim:</strong> o formulário usa um serviço externo de envio (Web3Forms), que encaminha o conteúdo para o meu e-mail. Não vendo seus dados nem os compartilho com terceiros para outras finalidades.</p>
             <p><strong>Por quanto tempo:</strong> guardo as informações pelo tempo necessário para responder ao seu contato. Se o atendimento for iniciado, os registros passam a seguir as normas profissionais da Psicologia.</p>
             <p><strong>Menores de 18 anos:</strong> o contato deve ser feito por um responsável.</p>
             <p><strong>Seus direitos:</strong> você pode pedir para saber quais dados tenho sobre você, corrigi-los ou excluí-los, e retirar seu consentimento a qualquer momento, pelos canais de contato deste site.</p>
@@ -181,18 +181,21 @@
             const limite = setTimeout(function () { controle.abort(); }, 90000);
 
             try {
-                const resposta = await fetch(
-                    formulario.action.replace("formsubmit.co/", "formsubmit.co/ajax/"),
-                    { method: "POST", headers: { Accept: "application/json" }, body: new FormData(formulario), signal: controle.signal }
-                );
+                const resposta = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    headers: { Accept: "application/json" },
+                    body: new FormData(formulario),
+                    signal: controle.signal
+                });
+                const dados = await resposta.json();
                 clearTimeout(aviso);
                 clearTimeout(limite);
-                if (!resposta.ok) throw new Error("falha");
+                if (!resposta.ok || !dados.success) throw new Error("falha");
                 window.location.href = "obrigado.html";
             } catch (erro) {
                 clearTimeout(aviso);
                 clearTimeout(limite);
-                statusFormulario.textContent = "Não recebemos a confirmação do envio. Sua mensagem pode ter chegado. Se não houver retorno em 1 dia útil, fale comigo pelo WhatsApp.";
+                statusFormulario.textContent = "Ainda não recebemos a confirmação do envio. Isso pode ser causado pela instabilidade do servidor. Ainda assim, sua mensagem pode ter chegado. Se não houver retorno em 1 dia útil, fale comigo pelo WhatsApp.";
                 botao.disabled = false;
                 botao.textContent = textoOriginal;
             }
