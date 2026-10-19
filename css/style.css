@@ -360,3 +360,8 @@ body:has(dialog[open]) { overflow: hidden; }
 }
 #formulario-contato .link-privacidade:hover { color: var(--azul-900); }
 .tema-corpo strong { color: var(--azul-900); }
+
+/* ===== Topo sem imagem (página de atendimento on-line) ===== */
+.hero--sem-imagem { justify-content: center; min-height: 0; padding: 80px 8%; text-align: center; }
+.hero--sem-imagem .hero-text { max-width: 760px; }
+.hero--sem-imagem .botoes { justify-content: center; }
