@@ -173,20 +173,26 @@
             botao.textContent = "Enviando...";
             statusFormulario.textContent = "Enviando sua mensagem, aguarde um instante.";
 
+            const aviso = setTimeout(function () {
+                statusFormulario.textContent = "Está demorando mais que o normal. Não feche esta página: sua mensagem pode já ter sido enviada.";
+            }, 12000);
+
             const controle = new AbortController();
-            const limite = setTimeout(function () { controle.abort(); }, 20000);
+            const limite = setTimeout(function () { controle.abort(); }, 90000);
 
             try {
                 const resposta = await fetch(
                     formulario.action.replace("formsubmit.co/", "formsubmit.co/ajax/"),
                     { method: "POST", headers: { Accept: "application/json" }, body: new FormData(formulario), signal: controle.signal }
                 );
+                clearTimeout(aviso);
                 clearTimeout(limite);
                 if (!resposta.ok) throw new Error("falha");
                 window.location.href = "obrigado.html";
             } catch (erro) {
+                clearTimeout(aviso);
                 clearTimeout(limite);
-                statusFormulario.textContent = "Não foi possível enviar agora. Tente novamente ou fale comigo pelo WhatsApp.";
+                statusFormulario.textContent = "Não recebemos a confirmação do envio. Sua mensagem pode ter chegado. Se não houver retorno em 1 dia útil, fale comigo pelo WhatsApp.";
                 botao.disabled = false;
                 botao.textContent = textoOriginal;
             }
