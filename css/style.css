@@ -365,3 +365,19 @@ body:has(dialog[open]) { overflow: hidden; }
 .hero--sem-imagem { justify-content: center; min-height: 0; padding: 80px 8%; text-align: center; }
 .hero--sem-imagem .hero-text { max-width: 760px; }
 .hero--sem-imagem .botoes { justify-content: center; }
+
+/* ===== Aviso de cookies ===== */
+.aviso-cookies {
+    position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 80;
+    max-width: 960px; margin: 0 auto; padding: 18px 22px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px;
+    background: var(--azul-900); color: #fff; border-radius: var(--raio);
+    box-shadow: 0 16px 40px rgba(14, 59, 71, .4); font-size: 16px; line-height: 1.5;
+}
+.aviso-cookies p { flex: 1 1 360px; color: var(--azul-200); }
+.aviso-cookies a { color: #fff; }
+.aviso-cookies .botoes { flex: none; }
+.aviso-cookies .botao { padding: 10px 24px; background: #fff; color: var(--azul-900); border-color: #fff; box-shadow: none; }
+.aviso-cookies .botao--secundario { background: transparent; color: #fff; }
+.link-cookies { background: none; border: 0; padding: 0; font: inherit; color: var(--azul-200); text-decoration: underline; cursor: pointer; }
+.link-cookies:hover { color: #fff; }
