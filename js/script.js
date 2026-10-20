@@ -197,3 +197,104 @@ document.querySelectorAll("[data-abrir]").forEach(function (botao) {
         x.addEventListener("click", function () { balao.close(); });
     });
 });
+/* ==========================================================
+   Cookies e medição de anúncios (Google Ads)
+   A etiqueta SÓ é carregada depois que a pessoa aceita.
+   Preencha as duas linhas de conversão com o que o Google Ads fornecer
+   (ex.: "AW-18526028782/AbCdEfGhIjK"). Enquanto estiverem vazias,
+   a etiqueta carrega, mas nenhuma conversão é registrada.
+   ========================================================== */
+const GOOGLE_ADS_ID = "AW-18526028782";
+const CONVERSAO_WHATSAPP = "";
+const CONVERSAO_FORMULARIO = "";
+const CHAVE_COOKIES = "preferenciaCookies";
+ 
+const prefixoPaginas = location.pathname.indexOf("/pages/") !== -1 ? "" : "pages/";
+let etiquetaCarregada = false;
+ 
+function lerPreferenciaCookies() {
+    try { return localStorage.getItem(CHAVE_COOKIES); } catch (erro) { return null; }
+}
+function gravarPreferenciaCookies(valor) {
+    try { localStorage.setItem(CHAVE_COOKIES, valor); } catch (erro) { /* sem armazenamento */ }
+}
+ 
+function registrarConversao(destino) {
+    if (destino && etiquetaCarregada && window.gtag) {
+        window.gtag("event", "conversion", { send_to: destino });
+    }
+}
+ 
+function carregarEtiquetaAnuncios() {
+    if (etiquetaCarregada) return;
+    etiquetaCarregada = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+ 
+    // Mede conversões, mas mantém a personalização de anúncios desligada
+    window.gtag("consent", "default", {
+        ad_storage: "granted",
+        ad_user_data: "granted",
+        ad_personalization: "denied",
+        analytics_storage: "denied"
+    });
+ 
+    const etiqueta = document.createElement("script");
+    etiqueta.async = true;
+    etiqueta.src = "https://www.googletagmanager.com/gtag/js?id=" + GOOGLE_ADS_ID;
+    document.head.appendChild(etiqueta);
+ 
+    window.gtag("js", new Date());
+    window.gtag("config", GOOGLE_ADS_ID, { allow_ad_personalization_signals: false });
+ 
+    if (location.pathname.endsWith("obrigado.html")) registrarConversao(CONVERSAO_FORMULARIO);
+}
+ 
+document.addEventListener("click", function (e) {
+    const link = e.target.closest && e.target.closest('a[href*="wa.me"]');
+    if (link) registrarConversao(CONVERSAO_WHATSAPP);
+});
+ 
+function escolherCookies(valor) {
+    const eraAceito = lerPreferenciaCookies() === "aceito";
+    gravarPreferenciaCookies(valor);
+    const aviso = document.querySelector(".aviso-cookies");
+    if (aviso) aviso.remove();
+    if (valor === "aceito") carregarEtiquetaAnuncios();
+    else if (eraAceito) location.reload();
+}
+ 
+function mostrarAvisoCookies() {
+    if (document.querySelector(".aviso-cookies")) return;
+    const aviso = document.createElement("div");
+    aviso.className = "aviso-cookies";
+    aviso.setAttribute("role", "dialog");
+    aviso.setAttribute("aria-label", "Aviso de cookies");
+    aviso.innerHTML =
+        '<p>Este site usa cookies para medir o resultado de anúncios. Você pode aceitar ou recusar, e mudar a escolha depois em “Preferências de cookies”, no rodapé. ' +
+        '<a href="' + prefixoPaginas + 'contato.html">Saiba mais</a></p>' +
+        '<div class="botoes">' +
+        '<button type="button" class="botao" data-cookies="aceito">Aceitar</button>' +
+        '<button type="button" class="botao botao--secundario" data-cookies="recusado">Recusar</button>' +
+        '</div>';
+    aviso.querySelectorAll("[data-cookies]").forEach(function (b) {
+        b.addEventListener("click", function () { escolherCookies(b.dataset.cookies); });
+    });
+    document.body.appendChild(aviso);
+}
+ 
+const preferenciaCookies = lerPreferenciaCookies();
+if (preferenciaCookies === "aceito") carregarEtiquetaAnuncios();
+else if (preferenciaCookies !== "recusado") mostrarAvisoCookies();
+ 
+const areaDireitos = document.querySelector(".direitos-rodape");
+if (areaDireitos) {
+    const p = document.createElement("p");
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "link-cookies";
+    b.textContent = "Preferências de cookies";
+    b.addEventListener("click", mostrarAvisoCookies);
+    p.appendChild(b);
+    areaDireitos.appendChild(p);
+}
